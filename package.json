@@ -1,0 +1,15 @@
+{
+  "name": "garage_pi",
+  "version": "1.0.0",
+  "description": "Web endpoint to manage garage-pi",
+  "author": "Tyler Jones <tyler@howchoo.com>",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.13.3",
+    "ejs": "",
+    "pi-gpio": ""
+  }
+}
