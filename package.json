@@ -10,6 +10,17 @@
   "dependencies": {
     "express": "^4.13.3",
     "ejs": "",
-    "pi-gpio": ""
+    "rpio": "",
+    "axios": "",
+    "node-sass": "",
+    "babel-core": "",
+    "babel-loader": "",
+    "style-loader": "",
+    "sass-loader": "",
+    "css-loader": "",
+    "react": "",
+    "react-dom": "",
+    "babel-preset-react": "",
+    "babel-preset-es2015": ""
   }
 }
