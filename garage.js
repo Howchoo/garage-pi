@@ -31,21 +31,25 @@ const GarageState = React.createClass({
 });
 
 const GarageButton = React.createClass({
-  sendRelay: function() {
-    axios.get('/relay');
-  },
-
   render: function() {
     let garageState = this.props.garageState || {};
+    let garage = this.props.garage;
     let text = (garageState.open) ? 'Close' : 'Open';
 
     return (
-      <button onClick={this.sendRelay}>{text}</button>
+      <button onClick={garage.sendRelay}>{text}</button>
     )
   }
 });
 
 const Garage = React.createClass({
+  sendRelay: function() {
+    axios.get('/relay');
+
+    // After 15 seconds check the status
+    setTimeout(this.updateStatus, 15000);
+  },
+
   updateStatus: function() {
     axios.get('/status')
       .then(function(res) {
@@ -63,7 +67,7 @@ const Garage = React.createClass({
     return (
         <div>
           <GarageState garageState={garageState} />
-          <GarageButton garageState={garageState} />
+          <GarageButton garageState={garageState} garage={this} />
         </div>
     )
   }
