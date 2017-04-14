@@ -8,19 +8,19 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.13.3",
-    "ejs": "",
-    "rpio": "",
     "axios": "",
-    "node-sass": "",
     "babel-core": "",
     "babel-loader": "",
-    "style-loader": "",
-    "sass-loader": "",
+    "babel-preset-es2015": "",
+    "babel-preset-react": "",
     "css-loader": "",
+    "ejs": "",
+    "express": "^4.13.3",
+    "node-sass": "",
     "react": "",
     "react-dom": "",
-    "babel-preset-react": "",
-    "babel-preset-es2015": ""
+    "rpio": "",
+    "sass-loader": "",
+    "style-loader": ""
   }
 }
