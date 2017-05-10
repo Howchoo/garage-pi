@@ -16,7 +16,7 @@ class GarageContainer extends Component {
   }
 
   componentDidMount() {
-    // this.updateStatus();
+    this.updateStatus();
   }
 
   updateStatus() {
