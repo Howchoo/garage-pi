@@ -7,7 +7,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.scss$/,
         loaders: ['style-loader', 'css-loader', 'sass-loader']
@@ -21,7 +21,7 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
-          presets: ['react', 'es2015']
+          presets: ['@babel/react', '@babel/env']
         }
       }
     ]
