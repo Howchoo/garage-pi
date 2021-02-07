@@ -5,6 +5,8 @@
   "author": "Ian Burns",
   "main": "dist/server/server.js",
   "scripts": {
+    "build": "webpack",
+    "restart": "webpack && node dist/server/server.js",
     "start": "node dist/server/server.js"
   },
   "dependencies": {
