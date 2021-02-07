@@ -42,13 +42,15 @@ function getState(doorId: number = 0) {
     lightStatus = 'off'
   }
 
-  return {
+  const newState = {
     door: {
       open: !rpio.read(openPins[doorId]),
       close: !rpio.read(closePins[doorId])
     },
     light: lightStatus
   }
+  console.log(newState);
+  return newState;
 }
 
 app.get('/', function(req: Request, res: Response) {
@@ -56,6 +58,7 @@ app.get('/', function(req: Request, res: Response) {
 });
 
 app.get('/status/:doorId', function(req: Request, res: Response) {
+  console.log(req.params.doorId);
   const doorId: number = parseInt(req.params["doorId"]) || 0;
   res.send(JSON.stringify(getState(doorId)));
 });

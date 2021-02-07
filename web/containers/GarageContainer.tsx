@@ -16,7 +16,7 @@ class GarageContainer<DoorConfig> extends React.Component {
     this.props = props;
     console.log(props);
 
-    this.state = { garageState: '', doorId: props.doorInfo.doorId, doorName: props.doorInfo.name };
+    this.state = { garageState: {}, doorId: props.doorInfo.doorId, doorName: props.doorInfo.name };
 
     this.updateStatus = this.updateStatus.bind(this);
     this.sendDoor = this.sendDoor.bind(this);
@@ -32,7 +32,7 @@ class GarageContainer<DoorConfig> extends React.Component {
   updateStatus() {
     axios.get(`/status/${this.state.doorId}`)
       .then(res => {
-        this.setState({ garageState: res.data });
+        this.setState({ garageState: res.data, doorId: this.state.doorId, doorName: this.state.doorName });
       })
       .catch(err => {
         console.log(err);
@@ -43,6 +43,7 @@ class GarageContainer<DoorConfig> extends React.Component {
     axios.post(`/door/${this.state.doorId}`)
       .then(res => {
         console.log(res);
+        this.updateStatus();
       })
       .catch(err => {
         console.log(err);
@@ -53,6 +54,7 @@ class GarageContainer<DoorConfig> extends React.Component {
     axios.post(`/light/${this.state.doorId}`)
       .then(res => {
         console.log(res);
+        this.updateStatus();
       })
       .catch(err => {
         console.log(err);
@@ -60,15 +62,14 @@ class GarageContainer<DoorConfig> extends React.Component {
   }
 
   getGarageDoorStatus() {
-    let { garageState } = this.state;
     console.log("get door state");
-    if (!garageState || !garageState.door) {
+    if (!this.state.garageState || !this.state.garageState.door) {
       return 'UNKNOWN';
     }
 
-    if (garageState.door === 'open') {
+    if (this.state.garageState.door.open) {
       return 'OPEN';
-    } else if (garageState.door === 'closed') {
+    } else if (this.state.garageState.door.closed) {
       return 'CLOSED';
     } else {
       return 'UNKNOWN';
@@ -76,15 +77,14 @@ class GarageContainer<DoorConfig> extends React.Component {
   }
 
   getGarageLightStatus() {
-    let { garageState } = this.state;
     console.log("get light state");
-    if (!garageState || !garageState.light) {
+    if (!this.state.garageState || !this.state.garageState.light) {
       return 'UNKNOWN';
     }
 
-    if (garageState.light === 'on') {
+    if (this.state.garageState.light === 'on') {
       return 'ON';
-    } else if (garageState.door === 'off') {
+    } else if (this.state.garageState.light === 'off') {
       return 'OFF';
     } else {
       return 'UNKNOWN';
