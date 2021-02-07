@@ -1,8 +1,4 @@
-# JetBrains ish
 .idea
-
-# Definitely don't want to check in node_modules folder
+.vscode
 node_modules
-
-# The only thing I don't like about OSx
-.DS_Store
+dist
