@@ -1,35 +1,52 @@
 body {
-  background-color: darkslateblue;
-  color: white;
+  background-color: darkcyan;
+  color: ghostwhite;
   font-family: Helvetica;
 }
 
 .garage {
   padding: 1em;
+  display: flex;
 
-  .state {
-    span {
-      text-transform: uppercase;
-      font-size: 1em;
+  .garageContainers {
+    display: inline-flex;
+
+    .doorInfo {
+      text-align: center;
     }
 
-    p {
-      font-size: 1.5em;
-      margin: 0.5em 0;
+    .state {
+      span {
+        text-transform: uppercase;
+        font-size: 1em;
+      }
+  
+      p {
+        font-size: 1.5em;
+        margin: 0.5em 0;
+      }
     }
+  
+    .garageContainer {
+      padding: 12px;
+      border: solid 2px lightseagreen;
+      margin: -1px;
+    }
+  
+    button {
+      color: ghostwhite;
+      background-color: darksalmon;
+      padding: 2em;
+      display: block;
+      font-size: 2em;
+      border: 2px solid ghostwhite;
+      border-radius: 2em;
+      width: 100%;
+      font-family: Helvetica;
+      margin-top: 2em;
+      cursor: pointer;
+    }
+  
   }
 
-  button {
-    color: white;
-    background-color: darksalmon;
-    padding: 2em;
-    display: block;
-    font-size: 2em;
-    border: 1px solid white;
-    border-radius: 2em;
-    width: 100%;
-    font-family: Helvetica;
-    margin-top: 2em;
-    cursor: pointer;
-  }
 }
