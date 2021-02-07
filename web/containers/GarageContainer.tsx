@@ -2,20 +2,21 @@ import React from 'react';
 
 import axios from 'axios'
 
+import DoorInfo from '../components/DoorInfo'
 import GarageState from '../components/GarageState'
 import GarageDoorButton from '../components/GarageDoorButton'
 import GarageLightButton from '../components/GarageLightButton'
 
-class GarageContainer extends React.Component {
+class GarageContainer<DoorConfig> extends React.Component {
+  public props: DoorConfig;
   public state: any;
-  private doorId: any;
 
   constructor(props) {
     super(props);
+    this.props = props;
+    console.log(props);
 
-    this.doorId = props.doorId;
-
-    this.state = { garageState: '' };
+    this.state = { garageState: '', doorId: props.doorId };
 
     this.updateStatus = this.updateStatus.bind(this);
     this.sendDoor = this.sendDoor.bind(this);
@@ -29,7 +30,7 @@ class GarageContainer extends React.Component {
   }
 
   updateStatus() {
-    axios.get(`/status/${this.doorId}`)
+    axios.get(`/status/${this.state.doorId}`)
       .then(res => {
         this.setState({ garageState: res.data });
       })
@@ -39,7 +40,7 @@ class GarageContainer extends React.Component {
   }
 
   sendDoor() {
-    axios.post(`/door/${this.doorId}`)
+    axios.post(`/door/${this.state.doorId}`)
       .then(res => {
         console.log(res);
       })
@@ -49,7 +50,7 @@ class GarageContainer extends React.Component {
   }
 
   sendLight() {
-    axios.post(`/light/${this.doorId}`)
+    axios.post(`/light/${this.state.doorId}`)
       .then(res => {
         console.log(res);
       })
@@ -92,10 +93,9 @@ class GarageContainer extends React.Component {
 
 
   render() {
-    let { garageState } = this.state;
-
     return (
-      <div>
+      <div className="garageContainer">
+        <DoorInfo doorInfo={this.props} />
         <GarageDoorButton
           buttonText={'toggle door'}
           sendDoor={this.sendDoor} />

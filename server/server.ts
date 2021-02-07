@@ -24,8 +24,6 @@ const lightPins = [
   parseInt(process.env.LIGHT_PIN_2) || 24
 ];
 
-console.log(doorPins);
-
 rpio.open(openPins[0], rpio.INPUT, rpio.PULL_UP);
 rpio.open(closePins[0], rpio.INPUT, rpio.PULL_UP);
 rpio.open(doorPins[0], rpio.OUTPUT, rpio.LOW);
