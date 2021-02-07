@@ -63,13 +63,14 @@ class GarageContainer<DoorConfig> extends React.Component {
 
   getGarageDoorStatus() {
     console.log("get door state");
-    if (!this.state.garageState || !this.state.garageState.door) {
+    console.log(this.state.garageState.doorOpen);
+    if (!this.state.garageState) {
       return 'UNKNOWN';
     }
 
-    if (this.state.garageState.door.open) {
+    if (this.state.garageState.doorOpen === true) {
       return 'OPEN';
-    } else if (this.state.garageState.door.closed) {
+    } else if (this.state.garageState.doorOpen === false) {
       return 'CLOSED';
     } else {
       return 'UNKNOWN';
@@ -78,13 +79,13 @@ class GarageContainer<DoorConfig> extends React.Component {
 
   getGarageLightStatus() {
     console.log("get light state");
-    if (!this.state.garageState || !this.state.garageState.light) {
+    console.log(this.state.garageState.lightOn);
+    if (!this.state.garageState) {
       return 'UNKNOWN';
     }
-
-    if (this.state.garageState.light === 'on') {
+    if (this.state.garageState.lightOn === true) {
       return 'ON';
-    } else if (this.state.garageState.light === 'off') {
+    } else if (this.state.garageState.lightOn === false) {
       return 'OFF';
     } else {
       return 'UNKNOWN';
