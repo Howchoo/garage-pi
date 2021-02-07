@@ -16,7 +16,7 @@ class GarageContainer<DoorConfig> extends React.Component {
     this.props = props;
     console.log(props);
 
-    this.state = { garageState: '', doorId: props.doorId };
+    this.state = { garageState: '', doorId: props.doorInfo.doorId, doorName: props.doorInfo.name };
 
     this.updateStatus = this.updateStatus.bind(this);
     this.sendDoor = this.sendDoor.bind(this);
