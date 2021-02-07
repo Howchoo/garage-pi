@@ -1,13 +1,19 @@
-import React, { Component } from 'react'
+import React from 'react';
+
 import axios from 'axios'
 
 import GarageState from '../components/GarageState'
 import GarageDoorButton from '../components/GarageDoorButton'
 import GarageLightButton from '../components/GarageLightButton'
 
-class GarageContainer extends Component {
+class GarageContainer extends React.Component {
+  public state: any;
+  private doorId: any;
+
   constructor(props) {
     super(props);
+
+    this.doorId = props.doorId;
 
     this.state = { garageState: '' };
 
@@ -23,7 +29,7 @@ class GarageContainer extends Component {
   }
 
   updateStatus() {
-    axios.get('/status')
+    axios.get('/status/'+ this.doorId)
       .then(res => {
         this.setState({ garageState: res.data });
       })
@@ -33,7 +39,7 @@ class GarageContainer extends Component {
   }
 
   sendDoor() {
-    axios.get('/door')
+    axios.post('/door', this.doorId)
       .then(res => {
         console.log(res);
       })
@@ -43,7 +49,7 @@ class GarageContainer extends Component {
   }
 
   sendLight() {
-    axios.get('/light')
+    axios.post('/light', this.doorId)
       .then(res => {
         console.log(res);
       })

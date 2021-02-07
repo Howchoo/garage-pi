@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+      "sourceMap": true,
+      "jsx": "react",
+      "esModuleInterop": true,
+    },
+    "include": [
+        "./web/**/*.tsx",
+        "./server/**/*.tsx",
+    ],
+    "exclude": [
+      "node_modules",
+  ],
+}

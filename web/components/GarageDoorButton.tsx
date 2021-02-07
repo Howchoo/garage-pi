@@ -1,4 +1,4 @@
-import React from 'react';
+import React = require('react')
 
 const GarageDoorButton = (props) => {
   let { sendDoor, buttonText } = props;
