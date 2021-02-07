@@ -64,10 +64,10 @@ app.post('/door/:doorId', function(req: Request, res: Response) {
   // Simulate a button press
   const doorId: number = parseInt(req.params["doorId"]) || 0;
   rpio.write(doorPins[doorId], rpio.HIGH);
-  console.log("door signal on");
+  console.log(`door signal on for ${doorId}`);
   setTimeout(function() {
     rpio.write(doorPins[doorId], rpio.LOW);
-    console.log("door signal off");    
+    console.log(`door signal off for ${doorId}`);
     res.send('done');
   }, 500);
 });
@@ -77,10 +77,10 @@ app.post('/light/:doorId', function(req: Request, res: Response) {
   const doorId: number = parseInt(req.params["doorId"]) || 0;
   let lightStatus = rpio.read(lightPins[doorId]);
   if (lightStatus == rpio.HIGH) {
-    console.log("light on");
+    console.log(`light on for ${doorId}`);
     rpio.write(lightPins[doorId], rpio.LOW);
   } else {
-    console.log("light off");
+    console.log(`light off for ${doorId}`);
     rpio.write(lightPins[doorId], rpio.HIGH);
   }
   res.send('done');
