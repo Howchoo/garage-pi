@@ -29,7 +29,7 @@ class GarageContainer extends React.Component {
   }
 
   updateStatus() {
-    axios.get('/status/'+ this.doorId)
+    axios.get(`/status/${this.doorId}`)
       .then(res => {
         this.setState({ garageState: res.data });
       })
@@ -39,7 +39,7 @@ class GarageContainer extends React.Component {
   }
 
   sendDoor() {
-    axios.post('/door', this.doorId)
+    axios.post(`/door/${this.doorId}`)
       .then(res => {
         console.log(res);
       })
@@ -49,7 +49,7 @@ class GarageContainer extends React.Component {
   }
 
   sendLight() {
-    axios.post('/light', this.doorId)
+    axios.post(`/light/${this.doorId}`)
       .then(res => {
         console.log(res);
       })
