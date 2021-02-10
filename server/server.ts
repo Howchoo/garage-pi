@@ -8,22 +8,25 @@ const PORT = 8080;
 
 let doorOpen: boolean[] = [false, false];
 
-// default: 13/22-close, 19/21-open, 11/23-relay, 12/24-light
+// default: 13/18-close, 31/32-open, 
+//open and close pins are reserved for safety mechanisms which are currently unsupported
 const openPins: number[] = [
-  parseInt(process.env.OPEN_PIN_1) || 19,
-  parseInt(process.env.OPEN_PIN_2) || 21
+  parseInt(process.env.OPEN_PIN_1) || 31,
+  parseInt(process.env.OPEN_PIN_2) || 32
 ];
 const closePins = [
   parseInt(process.env.CLOSE_PIN_1) || 13,
-  parseInt(process.env.CLOSE_PIN_2) || 22
+  parseInt(process.env.CLOSE_PIN_2) || 18
 ];
+
+// default: 11/15-relay, 12/16-light
 const doorPins = [
   parseInt(process.env.DOOR_PIN_1) || 11,
-  parseInt(process.env.DOOR_PIN_2) || 23
+  parseInt(process.env.DOOR_PIN_2) || 15
 ];
 const lightPins = [
   parseInt(process.env.LIGHT_PIN_1) || 12,
-  parseInt(process.env.LIGHT_PIN_2) || 24
+  parseInt(process.env.LIGHT_PIN_2) || 16
 ];
 
 rpio.open(openPins[0], rpio.INPUT, rpio.PULL_UP);
