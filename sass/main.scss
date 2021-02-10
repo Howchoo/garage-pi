@@ -1,5 +1,6 @@
 body {
   background-color: darkcyan;
+  text-transform: uppercase;
   color: ghostwhite;
   font-family: Helvetica, Tahoma, sans-serif;
 }
@@ -21,7 +22,6 @@ body {
 
     .state {
       span {
-        text-transform: uppercase;
         font-size: 1em;
       }
   
