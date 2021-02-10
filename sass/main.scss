@@ -16,23 +16,18 @@ body {
     text-align: center;
 
     .doorInfo {
-      text-align: center;
       font-size: 1.5em;
     }
 
     .state {
-      span {
-        font-size: 1em;
-      }
-  
       p {
-        font-size: 1.5em;
+        font-size: 1em;
         margin: 0.5em 0;
       }
     }
   
     .garageContainer {
-      padding: 12px;
+      padding: .5em;
       margin: auto;
       box-shadow: 1px 1px lightseagreen, -1px -1px lightseagreen, 1px -1px lightseagreen, -1px 1px lightseagreen;
       border: 1px solid lightseagreen;
@@ -46,14 +41,14 @@ body {
 
       color: ghostwhite;
       background-color: darkslategray;
-      padding: 1em;
+      padding: .75em;
       display: block;
       font-size: 2em;
       border: 2px solid ghostwhite;
-      border-radius: 1em;
+      border-radius: .75em;
       width: 100%;
       font-family: Helvetica;
-      margin-top: 1em;
+      margin-top: .5em;
       cursor: pointer;
       outline: none;
     }

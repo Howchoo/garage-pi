@@ -5,11 +5,11 @@ import GarageContainer from './containers/GarageContainer';
 const doorConfig: DoorConfig[] = [
   {
     doorId: 0,
-    name: "LEFT"
+    name:  "XING"
   },
   {
     doorId: 1,
-    name: "RIGHT"
+    name:  "BU XING"
   }
 ];
 
