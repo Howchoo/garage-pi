@@ -11,6 +11,7 @@ body {
 
   .garageContainers {
     display: inline-flex;
+    flex-wrap: wrap;
 
     .doorInfo {
       text-align: center;
@@ -36,15 +37,15 @@ body {
   
     button {
       color: ghostwhite;
-      background-color: darksalmon;
-      padding: 2em;
+      background-color: darkslategray;
+      padding: 1em;
       display: block;
       font-size: 2em;
       border: 2px solid ghostwhite;
-      border-radius: 2em;
+      border-radius: 1em;
       width: 100%;
       font-family: Helvetica;
-      margin-top: 2em;
+      margin-top: 1em;
       cursor: pointer;
     }
   
