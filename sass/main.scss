@@ -1,20 +1,22 @@
 body {
   background-color: darkcyan;
   color: ghostwhite;
-  font-family: Helvetica;
+  font-family: Helvetica, Tahoma, sans-serif;
 }
 
 .garage {
-  padding: 1em;
+  padding: .5em;
   display: flex;
   justify-content: center;
 
   .garageContainers {
     display: inline-flex;
     flex-wrap: wrap;
+    text-align: center;
 
     .doorInfo {
       text-align: center;
+      font-size: 1.5em;
     }
 
     .state {
@@ -31,11 +33,17 @@ body {
   
     .garageContainer {
       padding: 12px;
-      border: solid 2px lightseagreen;
-      margin: -1px;
+      margin: auto;
+      box-shadow: 1px 1px lightseagreen, -1px -1px lightseagreen, 1px -1px lightseagreen, -1px 1px lightseagreen;
+      border: 1px solid lightseagreen;
+      background-color: rgba(255, 255, 255, .05);
     }
   
     button {
+      &:hover, &:active {
+        background-color: darksalmon;
+      }
+
       color: ghostwhite;
       background-color: darkslategray;
       padding: 1em;
@@ -47,6 +55,7 @@ body {
       font-family: Helvetica;
       margin-top: 1em;
       cursor: pointer;
+      outline: none;
     }
   
   }

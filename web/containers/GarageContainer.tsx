@@ -98,10 +98,10 @@ class GarageContainer<DoorConfig> extends React.Component {
       <div className="garageContainer">
         <DoorInfo doorInfo={this.props} />
         <GarageDoorButton
-          buttonText={'toggle door'}
+          buttonText={'DOOR'}
           sendDoor={this.sendDoor} />
         <GarageLightButton
-          buttonText={'toggle light'}
+          buttonText={'LIGHT'}
           sendLight={this.sendLight} />
         <GarageState getGarageDoorStatus={this.getGarageDoorStatus} getGarageLightStatus={this.getGarageLightStatus} />
       </div>
